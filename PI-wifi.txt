@@ -1,0 +1,68 @@
+passwd
+
+PuTTy
+sudo apt install screen
+
+screen -x (conectare)
+Ctrl - D (exit)
+screen (Creare terminal)
+Ctrl - D - A (detasare)
+screen -r (reconectare continuare)
+
+Install WiFi
+
+sudo apt-get update
+sudo apt-get install hostapd isc-dhcp-server
+sudo apt-get install iptables-persistent
+
+cp /etc/dhcp/dhcpd.conf . (copiem fisierul) (punctul isneamna aici)
+
+sudo nano /etc/dhcp/dhcpd.conf
+
+sudo ifdownwlan0
+
+
+
+
+interface=wlan0
+driver=rtl871xdrv --delete
+ssid=Pi_AP --nume wifi
+country_code=US --delete
+hw_mode=g
+channel=6
+macaddr_acl=0
+auth_algs=1
+ignore_broadcast_ssid=0
+wpa=2
+wpa_passphrase=Raspberry
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=CCMP
+wpa_group_rekey=86400
+ieee80211n=1
+wme_enabled=1
+
+
+cp /etc/init.d/hostapd hostapd_init.d  
+
+
+
+
+final pt internet sa functioneze
+
+Removing WPA-Supplicant
+sudo mv less /usr/share/dbus-1/system-services/fi.epitest.hostap.WPASupplicant.service .
+
+ sudo mv /usr/share/dbus-1/system-services/fi.epitest.hostap.WPASupplicant.service .
+
+Finishing up!
+
+
+
+Inchidere
+sudo shutdown now
+sudo reboot
+
+
+
+
+
